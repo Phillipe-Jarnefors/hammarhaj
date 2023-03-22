@@ -1,3 +1,5 @@
+import printCart from "./print_cart.js";
+
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root')
 
@@ -12,7 +14,14 @@ export default function printPages(pages) {
 
 		li.addEventListener("click", () => {
 			console.log("click på page", page.id);
+
+			// Kalla på funktion "visa kundvagn" 
+			if (page.id === 14) {
+				printCart()
+			}
+
 			let pageContent = document.createElement("div");
+			contentSec.innerHTML = ""
 			pageContent.innerHTML = page.content.rendered;
 			contentSec.appendChild(pageContent);
 		})
