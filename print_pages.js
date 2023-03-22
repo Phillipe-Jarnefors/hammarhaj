@@ -1,3 +1,5 @@
+import printLandingPage from "./print_landing_page.js";
+
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root')
 
@@ -12,9 +14,15 @@ export default function printPages(pages) {
 
 		li.addEventListener("click", () => {
 			console.log("click på page", page.id);
-			let pageContent = document.createElement("div");
-			pageContent.innerHTML = page.content.rendered;
-			contentSec.appendChild(pageContent);
+			contentSec.innerText = "";
+
+			if(li.innerText === "Front Page"){
+				printLandingPage(pages)
+			}else{
+				let pageContent = document.createElement("div");
+				pageContent.innerHTML = page.content.rendered;
+				contentSec.appendChild(pageContent);
+			}
 		})
 	})
 	menu.appendChild(ul);

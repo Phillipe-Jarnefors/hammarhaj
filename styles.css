@@ -4,3 +4,21 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	box-sizing: border-box;
 }
+
+.front-page-wrapper{
+	display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.front-page-wrapper .test{
+	display: flex;
+	text-align: center;
+    align-items: center;
+}
+.front-page-wrapper .cta-Btn{
+	width: 15rem;
+    height: 5rem;
+    border-radius: 25px;
+    font-size: xx-large;
+}
