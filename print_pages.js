@@ -1,6 +1,7 @@
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root')
 
+
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
 	pages.map(page => {
@@ -11,6 +12,7 @@ export default function printPages(pages) {
 		ul.appendChild(li)
 
 		li.addEventListener("click", () => {
+			contentSec.innerHTML = "";
 			console.log("click på page", page.id);
 			let pageContent = document.createElement("div");
 			pageContent.innerHTML = page.content.rendered;
