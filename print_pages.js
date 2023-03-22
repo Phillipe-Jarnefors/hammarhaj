@@ -1,7 +1,10 @@
+
+import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 
-const menu = document.getElementById('navbar-pages')
-const contentSec = document.getElementById('root')
+const menu = document.getElementById('navbar-pages');
+const contentSec = document.getElementById('root');
+
 
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
@@ -23,8 +26,11 @@ export default function printPages(pages) {
 			let pageContent = document.createElement("div");
 			contentSec.innerHTML = ""
 			pageContent.innerHTML = page.content.rendered;
+
+			printProducts(page.id[13])
 			contentSec.appendChild(pageContent);
 		})
 	})
 	menu.appendChild(ul);
 }
+
