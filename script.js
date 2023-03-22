@@ -1,7 +1,7 @@
 'use strict';
 
 // Här skriver du din import av modul.
-import printCart from "./print_cart.js";
+
 import printPages from "./print_pages.js";
 
 // Här kallar du på din funktion i din egna modul

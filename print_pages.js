@@ -1,4 +1,3 @@
-
 import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 
@@ -20,15 +19,20 @@ export default function printPages(pages) {
 
 			// Kalla på funktion "visa kundvagn" 
 			if (page.id === 14) {
+				contentSec.innerHTML = ""
 				printCart()
+			} else if (page.id === 13) {
+				contentSec.innerHTML = ""
+				printProducts()
+			} else {
+				let pageContent = document.createElement("div");
+				contentSec.innerHTML = ""
+				pageContent.innerHTML = page.content.rendered;
+				contentSec.appendChild(pageContent);
 			}
 
-			let pageContent = document.createElement("div");
-			contentSec.innerHTML = ""
-			pageContent.innerHTML = page.content.rendered;
 
-			printProducts(page.id[13])
-			contentSec.appendChild(pageContent);
+
 		})
 	})
 	menu.appendChild(ul);
