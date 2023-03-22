@@ -1,5 +1,8 @@
-const menu = document.getElementById('navbar-pages')
-const contentSec = document.getElementById('root')
+import printProducts from "/print_products.js"
+
+
+const menu = document.getElementById('navbar-pages');
+const contentSec = document.getElementById('root');
 
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
@@ -14,8 +17,11 @@ export default function printPages(pages) {
 			console.log("click på page", page.id);
 			let pageContent = document.createElement("div");
 			pageContent.innerHTML = page.content.rendered;
+
+			printProducts(page.id[13])
 			contentSec.appendChild(pageContent);
 		})
 	})
 	menu.appendChild(ul);
 }
+
