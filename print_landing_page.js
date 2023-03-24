@@ -1,3 +1,4 @@
+import printProducts from "./print_products.js";
 
 const contentSec = document.getElementById('root')
 
@@ -7,7 +8,14 @@ export default function printLandingPage(pages) {
     const ctaBtn = document.createElement("button");
     ctaBtn.className = "cta-Btn";
     ctaBtn.innerText = "Shop";
-    //ctaBtn.addEventListener("click", /* funktion som Sargon gör? */);
+
+    //------------
+    // GO TO SHOP
+    //------------
+    ctaBtn.addEventListener("click", () => {
+        contentSec.innerHTML = ""
+        printProducts()
+    })
 
     let pageContent = document.createElement("div");
     pageContent.classList.add("front-page-wrapper");
