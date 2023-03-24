@@ -65,7 +65,7 @@ export default function printProducts() {
             })
 
                 div.append(productName, addToCart, price, prodImage);
-                contentSec.innerHTML = "";
+                /* contentSec.innerHTML = ""; */
                 contentSec.append(div);
 
 

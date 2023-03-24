@@ -5,3 +5,32 @@ body {
 	box-sizing: border-box;
 }
 
+
+/* - FOOTER - */
+.foot-wrapper ul{
+	display: flex;
+	justify-content: space-around;
+}
+.foot-wrapper li{
+	list-style: none;
+}
+
+
+/* - FRONT PAGE - */
+.front-page-wrapper{
+	display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.front-page-wrapper .content{
+	display: flex;
+	text-align: center;
+    align-items: center;
+}
+.front-page-wrapper .cta-Btn{
+	width: 15rem;
+    height: 5rem;
+    border-radius: 25px;
+    font-size: xx-large;
+}
