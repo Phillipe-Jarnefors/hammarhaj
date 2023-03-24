@@ -5,6 +5,18 @@ body {
 	box-sizing: border-box;
 }
 
+
+/* - FOOTER - */
+.foot-wrapper ul{
+	display: flex;
+	justify-content: space-around;
+}
+.foot-wrapper li{
+	list-style: none;
+}
+
+
+/* - FRONT PAGE - */
 .front-page-wrapper{
 	display: flex;
     flex-flow: column;
