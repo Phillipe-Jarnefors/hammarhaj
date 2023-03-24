@@ -1,4 +1,5 @@
 import printLandingPage from "./print_landing_page.js";
+import printCheckoutPage from "./print_checkout_page.js";
 
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root')
@@ -18,6 +19,8 @@ export default function printPages(pages) {
 
 			if(li.innerText === "Front Page"){
 				printLandingPage(pages)
+			}else if(page.id === 15){
+				printCheckoutPage()
 			}else{
 				let pageContent = document.createElement("div");
 				pageContent.innerHTML = page.content.rendered;
