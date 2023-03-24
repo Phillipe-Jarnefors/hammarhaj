@@ -5,16 +5,17 @@ const contentSec = document.getElementById('root');
 let cart = [];
 localStorage.setItem("cart", JSON.stringify(cart));
 
-export default function printProducts(products) {
+export default function printProducts() {
     fetch("http://167.71.35.197/index.php/wp-json/wc/store/products")
         .then(res => res.json())
         .then(data => {
             console.log(data)
 
-            let div = document.createElement("div");
+            
 
             data.map(product => {
-                let li = document.createElement("li");
+                let div = document.createElement("div");
+                let productName = document.createElement("h3");
                 let price = document.createElement("span");
                 let salePrice = document.createElement("span");
                 let prodImage = document.createElement("img");
@@ -27,17 +28,43 @@ export default function printProducts(products) {
                 salePrice.innerText = product.prices.sale_price;
                 price.innerText = product.prices.price;
                 addToCart.innerText = "Add to cart";
-                li.innerText = product.name;
+                productName.innerText = product.name;
 
                 addToCart.addEventListener("click", () => {
-                    console.log(product.id);
+                    
                     let cart = JSON.parse(localStorage.getItem("cart"));
-                    cart.push(product.id);
-                    localStorage.setItem("cart", JSON.stringify(cart));
-                    console.log("cart från LS", cart);
-                })
+                    
+                        let findItem = cart.find(prod => prod.id === product.id)
+                        console.log("findItem", findItem);
 
-                div.append(li, addToCart, price, prodImage);
+                        if (findItem) {
+                            findItem.quantity++
+                        } else {
+                            let cartObjectItem = {
+                                id: product.id,
+                                quantity: 1,
+                            }
+                            cart.push(cartObjectItem)
+                        }
+
+                        
+                        // if(findItem === -1) {
+                        //     cart.push(cartObjectItem);
+                        // }else {
+                        //     cart.splice(findItem, 1);
+                        //     cart.unshift(cartObjectItem);
+                        //     cartObjectItem.quantity ++;
+                        // }
+                    
+                        console.log(cart);
+                       
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                    
+
+                    
+            })
+
+                div.append(productName, addToCart, price, prodImage);
                 contentSec.innerHTML = "";
                 contentSec.append(div);
 

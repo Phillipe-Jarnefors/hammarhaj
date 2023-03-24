@@ -1,6 +1,7 @@
 // import printPages from "./print_pages.js";
 const contentSec = document.getElementById('root')
 
+
 export default function printCart() {
 
 	fetch("http://167.71.35.197/index.php/wp-json/wc/store/products")
@@ -27,7 +28,7 @@ export default function printCart() {
 			})
 
 			checkoutButton.addEventListener('click', (cartProducts) => {
-				// Emmas Kod
+				// someone
 			})
 
 			let myCart = JSON.parse(localStorage.getItem("cart"))
@@ -67,11 +68,11 @@ export default function printCart() {
 				const filterMyCart = myCart.filter(items => {
 					return items !== productItem
 				})
-
+			
 				localStorage.setItem('cart', JSON.stringify(filterMyCart))
 				console.log(myCart);
 			}
-
+			
 		} else {
 			contentSec.innerText = "Your Cart is Empty"
 		}
