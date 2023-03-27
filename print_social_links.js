@@ -7,7 +7,7 @@ export default function printSocialLinks(){
     fetch("http://167.71.35.197/index.php/wp-json/menus/v1/menus/sociallinks")
 	.then(res => res.json())
 	.then(data => {
-        console.log("data", data.items)
+        //console.log("data", data.items)
         let ul = document.createElement("ul")
 
         data.items.map(item=>{

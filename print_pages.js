@@ -1,6 +1,7 @@
 import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
+import printCheckoutPage from "./print_checkout_page.js";
 
 const menu = document.getElementById('navbar-pages');
 const contentSec = document.getElementById('root');
@@ -27,7 +28,10 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-			} else {
+			}else if (page.id === 15) {
+				printCheckoutPage()
+
+			}else {
 				let pageContent = document.createElement("div");
 				pageContent.innerHTML = page.content.rendered;
 				contentSec.appendChild(pageContent);
