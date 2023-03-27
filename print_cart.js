@@ -1,3 +1,5 @@
+import printCheckoutPage from "./print_checkout_page.js";
+
 const contentSec = document.getElementById('root')
 
 export default function printCart() {
@@ -25,53 +27,58 @@ export default function printCart() {
 			})
 
 			checkoutButton.addEventListener('click', (cartProducts) => {
-				//------------------
-				// HERE IS CHECKOUT
-				//------------------
+				printCheckoutPage(cartProducts)
 			})
 
 			let myCart = JSON.parse(localStorage.getItem("cart"))
 			
+			const divElem = document.createElement("div")
+    		divElem.className = "checkout-cart-box" 
+
 			cartProducts.map(cartItem => {
 				myCart.map(item => {
 					
-					if (cartItem.id === item.id) {
+					if (cartItem.id === item.product_id) {
 						const divContainer = document.createElement('div')
 						let itemName = document.createElement('h3')
 						let itemDesc = document.createElement('div')
 						let itemImage = document.createElement('img')
+						let itemPrice = document.createElement('p')
 						let itemQuantity = document.createElement('p')
 						let itemRemove = document.createElement('button')
 
 						itemDesc.innerHTML = cartItem.description
 						itemName.innerText = cartItem.name
 						itemImage.src = cartItem.images[0].src
+						itemPrice.innerText = cartItem.prices.price + " kr"
 						itemQuantity.innerText = item.quantity
 						itemRemove.innerText = "Remove from cart"
 
-						divContainer.append(itemName, itemDesc, itemImage, itemQuantity, itemRemove)
+						divContainer.append(itemName, itemDesc, itemImage, itemPrice, itemQuantity, itemRemove)
 
 						itemRemove.addEventListener('click', () => {
 							divContainer.innerHTML = ""
-							removeThisItem(item.id)
+							removeThisItem(item.product_id)
 						})
 
-						contentSec.appendChild(divContainer)
+						divElem.appendChild(divContainer)
 					}
 				})
 			})
+			contentSec.appendChild(divElem)
 
 			function removeThisItem(productItem) {
 				myCart = JSON.parse(localStorage.getItem("cart"))
 
 				const filterMyCart = myCart.filter(items => {
-					return items.id !== productItem
+					return items.product_id!== productItem
 				})
 				localStorage.setItem('cart', JSON.stringify(filterMyCart))
 			}
 			
 		} else {
 			contentSec.innerText = "Your Cart is Empty"
+			// knapp till produkter?
 		}
 	}
 }
