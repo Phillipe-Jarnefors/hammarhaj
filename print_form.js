@@ -84,7 +84,7 @@ export default function printForm() {
                 {
                     method_id: "flat_rate",
                     method_title: "Flat rate",
-                    total: 0
+                    total: ""
                 }
             ]
         }
