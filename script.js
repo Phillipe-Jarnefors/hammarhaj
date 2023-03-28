@@ -7,7 +7,7 @@
 import printPages from "./print_pages.js";
 import printLandingPage from "./print_landing_page.js";
 import printSocialLinks from "./print_social_links.js";
-
+import totalPriceFunction from "./print_totalprice.js";
 
 
 //------------------------
@@ -31,4 +31,5 @@ fetch("http://167.71.35.197/index.php/wp-json/wp/v2/pages")
 		printPages(data);
 		printLandingPage(data);
 		printSocialLinks();
+		totalPriceFunction();
 	})

@@ -13,6 +13,8 @@ export default function totalPriceFunction() {
     totalPrices.map(item => {
         sum += item;
     })
-
+    
     totalSumOfProducts = sum.toString()
+
+    localStorage.setItem('cart', JSON.stringify(myCart))
 }

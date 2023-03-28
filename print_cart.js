@@ -18,7 +18,7 @@ export default function printCart() {
 			let emptyCartButton = document.createElement('button')
 			let checkoutButton = document.createElement('button')
 			let itemTotalPrice = document.createElement('p')
-            itemTotalPrice.innerText = `Your total: ${totalSumOfProducts}`
+			itemTotalPrice.innerText = `Your total: ${totalSumOfProducts}`
 			checkoutButton.innerText = "Checkout"
 			emptyCartButton.innerText = 'Empty Cart'
 
@@ -28,7 +28,7 @@ export default function printCart() {
 				localStorage.setItem('cart', JSON.stringify([]))
 				contentSec.innerHTML = ""
 				contentSec.innerText = "Your Cart is Empty"
-				totalPriceFunction()
+				itemTotalPrice.innerHTML = ""
 			})
 
 			checkoutButton.addEventListener('click', (cartProducts) => {
@@ -63,7 +63,11 @@ export default function printCart() {
 
 						itemRemove.addEventListener('click', () => {
 							divContainer.innerHTML = ""
+							contentSec.innerHTML = ""
+							console.log(totalSumOfProducts);
 							removeThisItem(item.product_id)
+							totalPriceFunction()
+							showMyCartItems(cartProducts)
 						})
 
 						divElem.appendChild(divContainer)
