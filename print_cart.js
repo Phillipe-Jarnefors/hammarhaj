@@ -1,4 +1,6 @@
 import printCheckoutPage from "./print_checkout_page.js";
+import totalPriceFunction from "./print_totalprice.js";
+import { totalSumOfProducts } from "./print_totalprice.js";
 
 const contentSec = document.getElementById('root')
 
@@ -15,15 +17,18 @@ export default function printCart() {
 		if (JSON.parse(localStorage.getItem('cart')).length > 0) {
 			let emptyCartButton = document.createElement('button')
 			let checkoutButton = document.createElement('button')
+			let itemTotalPrice = document.createElement('p')
+            itemTotalPrice.innerText = `Your total: ${totalSumOfProducts}`
 			checkoutButton.innerText = "Checkout"
 			emptyCartButton.innerText = 'Empty Cart'
 
-			contentSec.append(emptyCartButton, checkoutButton)
+			contentSec.append(emptyCartButton, checkoutButton, itemTotalPrice)
 
 			emptyCartButton.addEventListener('click', () => {
 				localStorage.setItem('cart', JSON.stringify([]))
 				contentSec.innerHTML = ""
 				contentSec.innerText = "Your Cart is Empty"
+				totalPriceFunction()
 			})
 
 			checkoutButton.addEventListener('click', (cartProducts) => {

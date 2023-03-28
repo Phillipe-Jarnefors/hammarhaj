@@ -48,7 +48,7 @@ export default function printForm() {
         
         let myCart = JSON.parse(localStorage.getItem("cart"))
 
-        let sum = 0
+        
 
         let order = {
             payment_method: "bacs", 
@@ -89,33 +89,12 @@ export default function printForm() {
             ]
         }
 
-        let totalPrices = []
-
         myCart.map(item =>{
-
-            totalPrices.push(item.price)
-
             delete item.price
             console.log(item);
             order.line_items.push(item)
         })
-
-        function toNum(value){
-            return Number(value)
-        }
-
-        let totalPriceNumbers = totalPrices.map(toNum);
-
-        function sumArray(totalPriceNumbers){
-            
-            totalPriceNumbers.forEach(item => {
-                sum += item;
-            })
-            return sum
-        }
-
-        sumArray(totalPriceNumbers)
-        order.shipping_lines[0].total = sum.toString()
+        
 
         console.log(order);
 
