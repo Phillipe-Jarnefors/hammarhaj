@@ -15,6 +15,5 @@ export default function totalPriceFunction() {
     })
     
     totalSumOfProducts = sum.toString()
-
     localStorage.setItem('cart', JSON.stringify(myCart))
 }

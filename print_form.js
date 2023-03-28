@@ -84,7 +84,7 @@ export default function printForm() {
                 {
                     method_id: "flat_rate",
                     method_title: "Flat rate",
-                    total: ""
+                    total: "100"
                 }
             ]
         }
@@ -98,7 +98,7 @@ export default function printForm() {
 
         console.log(order);
 
-        fetch("http://167.71.35.197/wp-json/wc/v3/orders", {
+        fetch("http://167.71.35.197/index.php/wp-json/wc/v3/orders", {
             method: "POST",
             headers:{
                 "Content-type": "application/json",
