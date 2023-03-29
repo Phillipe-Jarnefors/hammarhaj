@@ -47,7 +47,7 @@ export default function printProducts() {
                     cart.push(cartObjectItem)
                 }
                 localStorage.setItem("cart", JSON.stringify(cart));
-                totalPriceFunction()
+                
             })
 
             div.append(productName, prodImage, price, salePrice, addToCart);

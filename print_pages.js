@@ -3,9 +3,9 @@ import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
 import printCheckoutPage from "./print_checkout_page.js";
-
 import printCategories from "./print_categories.js";
 import printNews from "./print_news.js";
+import totalPriceFunction from "./print_totalprice.js";
 
 const menu = document.getElementById('navbar-pages');
 const contentSec = document.getElementById('root');
@@ -26,7 +26,7 @@ export default function printPages(pages) {
       
 			if (page.id === 14) {
 				printCart()
-
+				totalPriceFunction()
 			} else if (page.id === 13) {
 				printProducts()
 				printCategories()
@@ -34,8 +34,9 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-			} else if (page.id === 15) 
+			} else if (page.id === 15) {
 				printCheckoutPage()
+				totalPriceFunction()
         
 			} else if (page.id === 37) {
 				printNews()
