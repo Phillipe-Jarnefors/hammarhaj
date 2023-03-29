@@ -10,13 +10,19 @@ body {
 
 
 /* - FOOTER - */
+.foot-wrapper{
+	display: flex;
+    justify-content: center;
+    align-items: baseline;
+	flex-wrap: wrap;
+	border-top: 1px solid lightgray;
+}
 .foot-wrapper ul{
 	display: flex;
 	justify-content: center;
 }
 .foot-wrapper li{
-	list-style: none;
-		
+	list-style: none;		
 }
 
 
@@ -55,13 +61,11 @@ body {
     gap: 10px;
 	margin: 20px 0;
 }
-
 .form-wrapper input{
 	width: 50%;
 }
 
 /* - THANK YOU MSG - */
-/* Samma layout som på produkt-korten? */
 .thanks-wrapper{
 	border: 1px solid lightgray;
 	border-radius: 5px;
@@ -71,8 +75,6 @@ body {
 	width: auto;
 	height: auto;
 	text-align: center;
-
-	/* plus lite padding*/
 	padding: 10px;
 }
 
@@ -127,7 +129,7 @@ figure img {
 }
 
 .foot-wrapper {
-	display: block;
+	/* display: block; */
 	/* position: fixed;
 	left: 0;
 	bottom: 0;

@@ -10,7 +10,7 @@ import printNews from "./print_news.js";
 const menu = document.getElementById('navbar-pages');
 const contentSec = document.getElementById('root');
 
-
+const footerWrapper = document.getElementById('foot-wrapper')
 
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
@@ -19,11 +19,17 @@ export default function printPages(pages) {
 		let li = document.createElement("li")
 		li.innerText = page.title.rendered;
 
-		ul.appendChild(li)
-
+		if(li.innerText === "Refund and Returns Policy"){
+			footerWrapper.appendChild(li)
+		}else if(li.innerText === "Privacy Policy"){
+			footerWrapper.appendChild(li)
+		}else{
+			ul.appendChild(li)				
+		}
+		
 		li.addEventListener("click", () => {
 			contentSec.innerText = "";
-      
+		
 			if (page.id === 14) {
 				printCart()
 
@@ -36,7 +42,7 @@ export default function printPages(pages) {
 
 			} else if (page.id === 15) {
 				printCheckoutPage()
-        
+		
 			} else if (page.id === 37) {
 				printNews()
 
