@@ -8,6 +8,7 @@ export default function printNews() {
 		console.log("sidor", posts);
         
         let ul = document.createElement("ul")
+        let newsContent = document.createElement("div");
         
         posts.map(post => {
             console.log("news", post.title.rendered);
@@ -16,8 +17,8 @@ export default function printNews() {
             
             li.addEventListener("click", () => {
                 console.log("Click på nyhet", post.title.rendered);
-                
-                let newsContent = document.createElement("div");
+
+                //let newsContent = document.createElement("div");
                 newsContent.innerHTML = post.content.rendered;
                 contentSec.appendChild(newsContent);
                 

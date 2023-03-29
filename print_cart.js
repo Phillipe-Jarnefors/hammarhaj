@@ -1,6 +1,4 @@
-// import printPages from "./print_pages.js";
 const contentSec = document.getElementById('root')
-
 
 export default function printCart() {
 
@@ -13,7 +11,6 @@ export default function printCart() {
 	function showMyCartItems(cartProducts) {
 
 		if (JSON.parse(localStorage.getItem('cart')).length > 0) {
-
 			let emptyCartButton = document.createElement('button')
 			let checkoutButton = document.createElement('button')
 			checkoutButton.innerText = "Checkout"
@@ -28,49 +25,49 @@ export default function printCart() {
 			})
 
 			checkoutButton.addEventListener('click', (cartProducts) => {
-				// someone
+				//------------------
+				// HERE IS CHECKOUT
+				//------------------
 			})
 
 			let myCart = JSON.parse(localStorage.getItem("cart"))
-
+			
 			cartProducts.map(cartItem => {
 				myCart.map(item => {
-					// console.log(item);
-					if (cartItem.id === item) {
+					
+					if (cartItem.id === item.id) {
 						const divContainer = document.createElement('div')
 						let itemName = document.createElement('h3')
 						let itemDesc = document.createElement('div')
 						let itemImage = document.createElement('img')
+						let itemQuantity = document.createElement('p')
 						let itemRemove = document.createElement('button')
 
 						itemDesc.innerHTML = cartItem.description
 						itemName.innerText = cartItem.name
 						itemImage.src = cartItem.images[0].src
+						itemQuantity.innerText = item.quantity
 						itemRemove.innerText = "Remove from cart"
 
-						divContainer.append(itemName, itemDesc, itemImage, itemRemove)
+						divContainer.append(itemName, itemDesc, itemImage, itemQuantity, itemRemove)
 
 						itemRemove.addEventListener('click', () => {
 							divContainer.innerHTML = ""
-							removeThisItem(item)
+							removeThisItem(item.id)
 						})
 
-						console.log(cartItem.id, cartItem.name);
 						contentSec.appendChild(divContainer)
 					}
 				})
-
-				// console.log(cartItem.name, cartItem.id);
 			})
 
 			function removeThisItem(productItem) {
 				myCart = JSON.parse(localStorage.getItem("cart"))
+
 				const filterMyCart = myCart.filter(items => {
-					return items !== productItem
+					return items.id !== productItem
 				})
-			
 				localStorage.setItem('cart', JSON.stringify(filterMyCart))
-				console.log(myCart);
 			}
 			
 		} else {

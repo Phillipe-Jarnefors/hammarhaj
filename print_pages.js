@@ -14,7 +14,7 @@ const contentSec = document.getElementById('root');
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
 	pages.map(page => {
-		//console.log("page", page.title.rendered);
+		
 		let li = document.createElement("li")
 		li.innerText = page.title.rendered;
 
@@ -22,30 +22,26 @@ export default function printPages(pages) {
 
 		li.addEventListener("click", () => {
 
-			console.log("click på page", page.id);
+
 			contentSec.innerText = "";
 			// Kalla på funktion "visa kundvagn" 
 			if (page.id === 14) {
-				
 				printCart()
-			} else if (page.id === 13) {
 
+			} else if (page.id === 13) {
+				printProducts()
 				printCategories()
 
-				printProducts()
-				
-			}else if (li.innerText === "Front Page") {
-
+			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
-			}
-			else if (page.id === 37) {
+
+			} else if (page.id === 37) {
 				printNews()
 
-			} 
+			} else {
+				contentSec.innerText = "";
 			
-			else {
-			
-			let pageContent = document.createElement("div");
+				let pageContent = document.createElement("div");
 				pageContent.innerHTML = page.content.rendered;
 				contentSec.appendChild(pageContent);
 			}
