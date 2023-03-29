@@ -1,10 +1,16 @@
+
 import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
 import printCheckoutPage from "./print_checkout_page.js";
 
+import printCategories from "./print_categories.js";
+import printNews from "./print_news.js";
+
 const menu = document.getElementById('navbar-pages');
 const contentSec = document.getElementById('root');
+
+
 
 export default function printPages(pages) {
 	let ul = document.createElement("ul")
@@ -16,20 +22,23 @@ export default function printPages(pages) {
 		ul.appendChild(li)
 
 		li.addEventListener("click", () => {
-
 			contentSec.innerText = "";
-			// Kalla på funktion "visa kundvagn" 
+      
 			if (page.id === 14) {
 				printCart()
 
 			} else if (page.id === 13) {
 				printProducts()
+				printCategories()
 
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-			} else if (page.id === 15) {
+			} else if (page.id === 15) 
 				printCheckoutPage()
+        
+			} else if (page.id === 37) {
+				printNews()
 
 			} else {
 				let pageContent = document.createElement("div");

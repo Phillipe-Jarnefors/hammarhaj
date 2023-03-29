@@ -23,7 +23,6 @@ export default function printProducts() {
 
             salePrice.innerText = `${product.prices.sale_price} kr`;
 
-            // Display only regular price if there is no sale price. Overwrite regular price if it's on sale.
             if (product.prices.regular_price !== product.prices.sale_price) {
                 price.innerText = product.prices.regular_price;
                 price.style.textDecoration = "line-through";
@@ -51,10 +50,9 @@ export default function printProducts() {
                 totalPriceFunction()
             })
 
-            div.append(productName, addToCart, price, salePrice, prodImage);
+            div.append(productName, prodImage, price, salePrice, addToCart);
             contentSec.append(div);
         })
-
     })
 }
 
