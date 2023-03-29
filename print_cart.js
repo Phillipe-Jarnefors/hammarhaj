@@ -18,7 +18,7 @@ export default function printCart() {
 			let emptyCartButton = document.createElement('button')
 			let checkoutButton = document.createElement('button')
 			let itemTotalPrice = document.createElement('p')
-			itemTotalPrice.innerText = `Your total: ${totalSumOfProducts}`
+			itemTotalPrice.innerText = `Your total: ${totalSumOfProducts} kr`
 			checkoutButton.innerText = "Checkout"
 			emptyCartButton.innerText = 'Empty Cart'
 

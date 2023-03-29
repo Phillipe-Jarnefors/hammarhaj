@@ -39,23 +39,23 @@ export default function printForm() {
 
     sendBtn.addEventListener("click", (event) =>{
         event.preventDefault()
+
+        ////////// Här kan vi skapa ny modul: Tack för din beställning
+        contentSec.innerHTML = ""
+        contentSec.innerText = "Tack för din beställning"
+        ////////// 
+        
         postOrder()  
     }) 
 
-
     function postOrder(){
-        console.log("Skicka order");
-        
         let myCart = JSON.parse(localStorage.getItem("cart"))
-
-        
 
         let order = {
             payment_method: "bacs", 
             payment_method_title: "Direct Bank Transfer",
             set_paid: true,
 
-            // dessa i billing ska komma från ett formulär
             billing: {
                 first_name: firstName.value,
                 last_name: lastName.value,
@@ -77,8 +77,7 @@ export default function printForm() {
                 phone: phone.value
             },
             line_items: [
-                // LOOP TROU MYCART
-                
+                // Localstorage: {product_id, quantity}  
             ],
             shipping_lines: [
                 {
@@ -91,11 +90,10 @@ export default function printForm() {
 
         myCart.map(item =>{
             delete item.price
-            console.log(item);
             order.line_items.push(item)
-        })
-        
+        })        
 
+        //Visa att order skickas
         console.log(order);
 
         fetch("http://167.71.35.197/index.php/wp-json/wc/v3/orders", {
@@ -113,4 +111,3 @@ export default function printForm() {
         .catch(err => console.log("err", err));
     }
 }
-

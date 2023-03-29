@@ -21,7 +21,7 @@ export default function printProducts() {
             prodImage.style.height = "100px";
             prodImage.style.width = "100px";
 
-            salePrice.innerText = product.prices.sale_price;
+            salePrice.innerText = `${product.prices.sale_price} kr`;
 
             // Display only regular price if there is no sale price. Overwrite regular price if it's on sale.
             if (product.prices.regular_price !== product.prices.sale_price) {
@@ -49,7 +49,6 @@ export default function printProducts() {
                 }
                 localStorage.setItem("cart", JSON.stringify(cart));
                 totalPriceFunction()
-                
             })
 
             div.append(productName, addToCart, price, salePrice, prodImage);
