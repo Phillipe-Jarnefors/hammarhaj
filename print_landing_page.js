@@ -1,3 +1,4 @@
+import printCategories from "./print_categories.js";
 import printProducts from "./print_products.js";
 
 const contentSec = document.getElementById('root')
@@ -15,6 +16,7 @@ export default function printLandingPage(pages) {
     ctaBtn.addEventListener("click", () => {
         contentSec.innerHTML = ""
         printProducts()
+        printCategories()   
     })
 
     let pageContent = document.createElement("div");

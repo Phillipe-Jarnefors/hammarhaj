@@ -44,7 +44,7 @@ export default function printProducts() {
                 
             })
 
-            div.append(productName, addToCart, price, prodImage);
+            div.append(productName, prodImage, price, addToCart);
             contentSec.append(div);
         })
 
