@@ -1,5 +1,6 @@
-const contentSec = document.getElementById('root')
+import printThanks from "./print_thanks.js";
 
+const contentSec = document.getElementById('root')
 
 export default function printForm() {
 
@@ -52,12 +53,8 @@ export default function printForm() {
             postcode.checkValidity() && country.checkValidity() &&
             email.checkValidity() && phone.checkValidity()){
 
-            console.log("alla är rätt")
-            contentSec.innerHTML = ""
-            contentSec.innerText = "Tack för din beställning"
+            postOrder() 
 
-                    
-            //postOrder() 
         }else{
             formBox.style.border = "2px solid red"
             let errorMsg = document.createElement("p")
@@ -125,6 +122,7 @@ export default function printForm() {
         .then(data => {
             console.log("Ordern är skickad", data);
             localStorage.setItem("cart", JSON.stringify([]));
+            printThanks();
         })
         .catch(err => console.log("err", err));
     }
