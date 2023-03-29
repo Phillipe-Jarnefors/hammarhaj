@@ -28,14 +28,15 @@ export default function printProducts() {
             addToCart.addEventListener("click", () => {
                 
                 let cart = JSON.parse(localStorage.getItem("cart"));
-                let findItem = cart.find(prod => prod.id === product.id)
+                let findItem = cart.find(prod => prod.product_id === product.id)
                     
                 if (findItem) {
                     findItem.quantity++
                 } else {
                     let cartObjectItem = {
-                        id: product.id,
+                        product_id: product.id,
                         quantity: 1,
+                        price: product.prices.price ? product.prices.price : product.prices.salePrice
                     }
                     cart.push(cartObjectItem)
                 }

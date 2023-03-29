@@ -2,6 +2,7 @@
 import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
+import printCheckoutPage from "./print_checkout_page.js";
 
 import printCategories from "./print_categories.js";
 import printNews from "./print_news.js";
@@ -35,12 +36,15 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
+
 			} else if (page.id === 37) {
 				printNews()
-
-			} else {
-				contentSec.innerText = "";
 			
+			}else if (page.id === 15) {
+				printCheckoutPage()
+
+			}else {
+
 				let pageContent = document.createElement("div");
 				pageContent.innerHTML = page.content.rendered;
 				contentSec.appendChild(pageContent);
