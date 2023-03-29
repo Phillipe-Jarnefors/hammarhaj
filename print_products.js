@@ -1,3 +1,4 @@
+import totalPriceFunction from "./print_totalprice.js";
 const contentSec = document.getElementById('root');
 
 export default function printProducts() {
@@ -20,8 +21,13 @@ export default function printProducts() {
             prodImage.style.height = "100px";
             prodImage.style.width = "100px";
 
-            salePrice.innerText = product.prices.sale_price;
-            price.innerText = product.prices.price;
+            salePrice.innerText = `${product.prices.sale_price} kr`;
+
+            if (product.prices.regular_price !== product.prices.sale_price) {
+                price.innerText = product.prices.regular_price;
+                price.style.textDecoration = "line-through";
+            }
+
             addToCart.innerText = "Add to cart";
             productName.innerText = product.name;
 
@@ -29,7 +35,7 @@ export default function printProducts() {
                 
                 let cart = JSON.parse(localStorage.getItem("cart"));
                 let findItem = cart.find(prod => prod.product_id === product.id)
-                    
+                
                 if (findItem) {
                     findItem.quantity++
                 } else {
@@ -41,13 +47,12 @@ export default function printProducts() {
                     cart.push(cartObjectItem)
                 }
                 localStorage.setItem("cart", JSON.stringify(cart));
-                
+                totalPriceFunction()
             })
 
-            div.append(productName, prodImage, price, addToCart);
+            div.append(productName, prodImage, price, salePrice, addToCart);
             contentSec.append(div);
         })
-
     })
 }
 

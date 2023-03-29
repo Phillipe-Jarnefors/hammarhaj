@@ -22,10 +22,8 @@ export default function printPages(pages) {
 		ul.appendChild(li)
 
 		li.addEventListener("click", () => {
-
-
 			contentSec.innerText = "";
-			// Kalla på funktion "visa kundvagn" 
+      
 			if (page.id === 14) {
 				printCart()
 
@@ -36,20 +34,17 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-
+			} else if (page.id === 15) 
+				printCheckoutPage()
+        
 			} else if (page.id === 37) {
 				printNews()
-			
-			}else if (page.id === 15) {
-				printCheckoutPage()
 
-			}else {
-
+			} else {
 				let pageContent = document.createElement("div");
 				pageContent.innerHTML = page.content.rendered;
 				contentSec.appendChild(pageContent);
 			}
-			
 		})
 	})
 	menu.appendChild(ul);
