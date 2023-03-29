@@ -34,7 +34,7 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-			} else if (page.id === 15) 
+			} else if (page.id === 15) {
 				printCheckoutPage()
         
 			} else if (page.id === 37) {

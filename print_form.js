@@ -25,10 +25,18 @@ export default function printForm() {
     country.placeholder = "Country:"
 
     const email = document.createElement("input")
+    email.type = "email"
     email.placeholder = "Email:"
 
     const phone = document.createElement("input")
     phone.placeholder = "Phone:"
+
+    const formElements = [firstName, lastName, adress, city, postcode, country, email, phone]
+
+    formElements.forEach((element) =>{
+        element.setAttribute("required", "")
+        phone.required = true
+    })
 
     const sendBtn = document.createElement("button")
     sendBtn.innerText = "Send Order!"
@@ -39,13 +47,23 @@ export default function printForm() {
 
     sendBtn.addEventListener("click", (event) =>{
         event.preventDefault()
+        if(firstName.checkValidity() && lastName.checkValidity() &&
+            adress.checkValidity() && city.checkValidity() &&
+            postcode.checkValidity() && country.checkValidity() &&
+            email.checkValidity() && phone.checkValidity()){
 
-        ////////// Här kan vi skapa ny modul: Tack för din beställning
-        contentSec.innerHTML = ""
-        contentSec.innerText = "Tack för din beställning"
-        ////////// 
-        
-        postOrder()  
+            console.log("alla är rätt")
+            contentSec.innerHTML = ""
+            contentSec.innerText = "Tack för din beställning"
+
+                    
+            //postOrder() 
+        }else{
+            formBox.style.border = "2px solid red"
+            let errorMsg = document.createElement("p")
+            errorMsg.innerText = "Please make sure you have filled in every field correctly"
+            formBox.appendChild(errorMsg)
+        }
     }) 
 
     function postOrder(){
