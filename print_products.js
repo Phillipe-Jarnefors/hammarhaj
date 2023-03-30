@@ -9,11 +9,11 @@ export default function printProducts() {
         data.map(product => {
             let div = document.createElement("div");
             let productName = document.createElement("h3");
-            let price = document.createElement("span");
-            let salePrice = document.createElement("span");
+            let price = document.createElement("p");
+            let salePrice = document.createElement("p");
             let prodImage = document.createElement("img");
             let addToCart = document.createElement("button");
-
+            div.className = "div-product";
             //----------------------
             // Styling needs classes
             //----------------------
@@ -52,7 +52,8 @@ export default function printProducts() {
 
             div.append(productName, prodImage, price, salePrice, addToCart);
             contentSec.append(div);
-        })
-    })
+        }) 
+    }) 
 }
+
 

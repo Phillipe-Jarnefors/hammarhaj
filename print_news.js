@@ -7,7 +7,9 @@ export default function printNews() {
 	.then(posts => {
 		console.log("sidor", posts);
         
-        let ul = document.createElement("ul")
+        let newsTitle = document.createElement("div");
+        newsTitle.className = "news-title";
+        let ul = document.createElement("ul");
         let newsContent = document.createElement("div");
         
         posts.map(post => {
@@ -26,7 +28,8 @@ export default function printNews() {
             
             ul.appendChild(li)
         })
-        contentSec.appendChild(ul);
+        newsTitle.appendChild(ul)
+        contentSec.appendChild(newsTitle);
     })
 }
 
