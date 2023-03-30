@@ -1,4 +1,4 @@
-import printProducts from "/print_products.js"
+import printProducts from "./print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
 import printCheckoutPage from "./print_checkout_page.js";

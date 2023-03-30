@@ -1,5 +1,5 @@
 import printCart from "./print_cart.js";
-import printForm from "./print_Form.js";
+import printForm from "./print_form.js";
 
 
 const contentSec = document.getElementById('root')
