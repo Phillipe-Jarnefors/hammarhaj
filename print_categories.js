@@ -47,7 +47,7 @@ export default function printCategories() {
                             prodImage.style.height = "100px";
                             prodImage.style.width = "100px";
     
-                            salePrice.innerText = product.prices.sale_price;
+                            salePrice.innerText = `${product.prices.sale_price} kr`;
                             addToCart.innerText = "Add to cart";
                             productName.innerText = product.name;
 
