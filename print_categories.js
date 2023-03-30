@@ -1,48 +1,43 @@
-import printProducts from "./print_products.js";
-
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root');
+export let categoryUl = document.createElement("ul");
 
 
 export default function printCategories() {
-
+    categoryUl.innerHTML = "";
+    categoryUl.style.display = "flex"
 
     fetch("http://167.71.35.197/index.php/wp-json/wc/v3/products/categories")
 	.then(res => res.json())
 	.then(categories => {
-		console.log("kategorier", categories);
-	    
-        let categoryUl = document.createElement("ul")
 
         categories.map(category => {
 
-            //console.log("category", category.name);
             let li = document.createElement("li")
             li.innerText = category.name;
             
             li.addEventListener("click", () => {
-                //console.log("Click på category", category.name);
+                
                 contentSec.innerHTML = "";
 
                 fetch("http://167.71.35.197/index.php/wp-json/wc/store/products")
                 .then(res => res.json())
                 .then(products => {
-                    //console.log("produkter", products);
                     
                     products.map(product => {
 
-                        //console.log("produktkategori", category.id);
                         for (let i = 0; i < product.categories.length; i++ ) {
 
                             if (product.categories[i].id === category.id) {
     
                             let div = document.createElement("div");
                             let productName = document.createElement("h3");
-                            let price = document.createElement("span");
-                            let salePrice = document.createElement("span");
+                            let price = document.createElement("p");
+                            let salePrice = document.createElement("p");
                             let prodImage = document.createElement("img");
                             let addToCart = document.createElement("button");
-            
+                            div.className = "div-product";
+
                             prodImage.src = product.images[0].src;
                             prodImage.style.height = "100px";
                             prodImage.style.width = "100px";
@@ -80,9 +75,6 @@ export default function printCategories() {
                             }  
 
                         }
-                    
-
-                        
 
                     })  
 
@@ -99,6 +91,8 @@ export default function printCategories() {
     }) 
 
 }
+
+
 
 
 
