@@ -23,7 +23,7 @@ export default function printPages(pages) {
 
 		li.addEventListener("click", () => {
 			contentSec.innerText = "";
-      
+			
 			if (page.id === 14) {
 				printCart()
 
@@ -34,7 +34,7 @@ export default function printPages(pages) {
 			} else if (li.innerText === "Front Page") {
 				printLandingPage(pages)
 
-			} else if (page.id === 15) 
+			} else if (page.id === 15) {
 				printCheckoutPage()
         
 			} else if (page.id === 37) {
@@ -49,4 +49,6 @@ export default function printPages(pages) {
 	})
 	menu.appendChild(ul);
 }
+
+
 

@@ -51,6 +51,7 @@ export default function printCart() {
 						let itemPrice = document.createElement('p')
 						let itemQuantity = document.createElement('p')
 						let itemRemove = document.createElement('button')
+						
 
 						itemDesc.innerHTML = cartItem.description
 						itemName.innerText = cartItem.name
