@@ -1,16 +1,16 @@
 const menu = document.getElementById('navbar-pages')
 const contentSec = document.getElementById('root');
+let categoryUl = document.createElement("ul");
 
 
 export default function printCategories() {
+    categoryUl.innerHTML = "";
 
 
     fetch("http://167.71.35.197/index.php/wp-json/wc/v3/products/categories")
 	.then(res => res.json())
 	.then(categories => {
 		console.log("kategorier", categories);
-	    
-        let categoryUl = document.createElement("ul")
 
         categories.map(category => {
 
@@ -44,6 +44,7 @@ export default function printCategories() {
                             let salePrice = document.createElement("span");
                             let prodImage = document.createElement("img");
                             let addToCart = document.createElement("button");
+                            div.className = "div-product";
             //----------------------
             // Styling needs classes
             //----------------------
@@ -97,6 +98,8 @@ export default function printCategories() {
     }) 
 
 }
+
+
 
 
 

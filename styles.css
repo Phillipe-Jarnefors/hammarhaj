@@ -24,6 +24,22 @@ body {
 .foot-wrapper li{
 	list-style: none;		
 }
+.body-wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* - FOOTER - */
+.foot-wrapper{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    border-top: 1px solid lightgray;
+}
 
 
 /* - FRONT PAGE - */
@@ -79,7 +95,7 @@ body {
 }
 
 
-/* ====== OLGA ======= */
+/* =========== OLGA ========== */
 
 header {
 	display: block;
@@ -88,35 +104,154 @@ header {
 	border-bottom: 1px solid lightgray;
 }
 
-/* menu */
-li {
+/* meny, sociala länkar */
+header li {
 	list-style-type: none;
 	display: list-item;
-	margin-right: 35px;
-	
+	margin-right: 35px;	
+}
+
+header li:hover {
+	transform: scale(1.1);
+	color: rgb(170, 170, 125);
 }
 
 .main-wrapper {
 	display: flex;
     flex-wrap: wrap;
     justify-content: center;
-	padding-bottom: 15px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.main-wrapper ul {
+	display: block;
+
+}
+
+li {
+	list-style-type: none;
+}
+
+/* om oss */
+.main-wrapper > div > h2, p {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+/* nyheter title */
+.news-title {
+	width: 100%;
+	text-align: center;
+}
+
+.news-title ul {
+	padding: 10px;
+	text-align: center;
+}
+
+/* empty cart/ checkout knappar*/
+.main-wrapper > button {
+	width: 150px;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	box-shadow: 5px 5px 12px lightgray;
+	margin: 15px;
+}
+
+/* your total */
+.main-wrapper > p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: green;
+	font-size: 20px;
+	/* border: 1px solid lightgray;
+	background-color: rgb(241, 237, 237); */
+	box-shadow: 3px 3px 8px lightgray;
+}
+
+.checkout-cart-box {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.checkout-cart-box > div {
+	width: 240px;
+	height: auto;
+	display: block;
+	text-align: center;
+	border: 1px solid lightgray;
+	box-shadow: 5px 5px 12px lightgray;
+	margin: 8px;
+	border-radius: 5px;
+}
+
+.checkout-cart-box > div ul {
+	padding: 8px;
+}
+
+.checkout-cart-box img {
+	width: 150px;
+	height: 140px;
+}
+
+.checkout-cart-box p {
+	margin: 8px;
+}
+
+.checkout-cart-box > div button {
+	left: 0;
+	bottom: 0;
+	width: 65%;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	box-shadow: 5px 5px 12px lightgray;
+	margin-bottom: 15px;
+
+}
+
+.checkout-cart-box > div button:hover {
+	transform: scale(1.1);
 }
 
 /* produkter*/
-/* main div {
+main .div-product {
 	border: 1px solid lightgray;
 	border-radius: 5px;
 	box-shadow: 5px 5px 12px lightgray;
 	display: block;
 	margin: 10px;
-	width: auto;
-	height: auto;
+	width: 240px;
+	height: 300px;
 	text-align: center;
-	
-} */
+	color: rgb(89, 87, 87)	
+}
 
-/* bilder på sidan om oss*/
+.div-product img {
+	text-align:  center;
+}
+
+.div-product p {
+	text-align: center;
+	margin: 8px;
+}
+
+.div-product button {
+	left: 0;
+	bottom: 0;
+	width: 65%;
+	height: 35px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	box-shadow: 5px 5px 12px lightgray;
+}
+
+/* bilder på sidan om oss/ nyheter*/
 figure img {
 	width: 280px;
 	height: 280px;
@@ -135,13 +270,27 @@ figure img {
 	bottom: 0;
 	width: 100%;
 	background-color: rgb(246, 243, 243); */
+	border-top: 1px solid lightgray;
 	
 }
 
-a {
+footer li {
+	list-style-type: none;
+	display: list-item;
+	margin-right: 35px;	
+}
+footer li:hover {
+	transform: scale(1.1);
+	color: rgb(170, 170, 125);
+
+}
+
+footer a {
 	text-decoration: none;
 	color: rgb(68, 66, 66);
 }
+
+
 
 /*  ==========  Desktop ============  */
 
@@ -151,8 +300,7 @@ a {
 header ul {
 	display: flex;
 	justify-content: center;
-	padding: 8px;
-    
+	padding: 8px;   
 }
 
 /* content */
@@ -165,25 +313,48 @@ header ul {
     margin-inline-end: 120px;
     font-size: 18px;
 	padding-top: 10px;
-	padding-bottom: 30px;
-	
+	padding-bottom: 30px;	
+}
+
+/* nyheter title */
+.main-wrapper > ul {
+	display: block;
+	text-align: center;	
 }
 
 /* produkter*/
-/* main div {
+main .div-product {
 	border: 1px solid lightgray;
 	border-radius: 5px;
 	box-shadow: 5px 5px 12px lightgray;
 	display: block;
 	margin: 10px;
-	width: 220px;
-	height: 280px;	
-	
-} */
+	width: 225px;
+	height: 300px;		
+}
+
+.div-product button:hover {
+	transform: scale(1.1);
+}
+
+/* empty cart/ checkout knappar*/
+.main-wrapper > button:hover {
+	transform: scale(1.1);
+}
+
+/* your total */
+.main-wrapper > p {
+	padding-left: 20px;
+}
 
 a {
 	text-decoration: none;
 	color: rgb(68, 66, 66);
+}
+
+a:hover {
+	transform: scale(1.1);
+	color: rgb(170, 170, 125);
 }
 
 }

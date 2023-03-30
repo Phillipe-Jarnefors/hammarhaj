@@ -3,13 +3,11 @@ import printProducts from "/print_products.js"
 import printCart from "./print_cart.js";
 import printLandingPage from "./print_landing_page.js";
 import printCheckoutPage from "./print_checkout_page.js";
-
 import printCategories from "./print_categories.js";
 import printNews from "./print_news.js";
 
 const menu = document.getElementById('navbar-pages');
 const contentSec = document.getElementById('root');
-
 const footerWrapper = document.getElementById('foot-wrapper')
 
 export default function printPages(pages) {
@@ -29,7 +27,7 @@ export default function printPages(pages) {
 		
 		li.addEventListener("click", () => {
 			contentSec.innerText = "";
-		
+
 			if (page.id === 14) {
 				printCart()
 
@@ -55,4 +53,6 @@ export default function printPages(pages) {
 	})
 	menu.appendChild(ul);
 }
+
+
 
