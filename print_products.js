@@ -1,4 +1,3 @@
-import totalPriceFunction from "./print_totalprice.js";
 const contentSec = document.getElementById('root');
 
 export default function printProducts() {
@@ -9,14 +8,14 @@ export default function printProducts() {
         data.map(product => {
             let div = document.createElement("div");
             let productName = document.createElement("h3");
+            let itemDesc = document.createElement('div')
             let price = document.createElement("p");
             let salePrice = document.createElement("p");
             let prodImage = document.createElement("img");
             let addToCart = document.createElement("button");
             div.className = "div-product";
-            //----------------------
-            // Styling needs classes
-            //----------------------
+            
+            itemDesc.innerHTML = product.description
             prodImage.src = product.images[0].src;
             prodImage.style.height = "100px";
             prodImage.style.width = "100px";
@@ -47,10 +46,10 @@ export default function printProducts() {
                     cart.push(cartObjectItem)
                 }
                 localStorage.setItem("cart", JSON.stringify(cart));
-                totalPriceFunction()
+                
             })
 
-            div.append(productName, prodImage, price, salePrice, addToCart);
+            div.append(productName, itemDesc, prodImage, price, salePrice, addToCart);
             contentSec.append(div);
         }) 
     }) 

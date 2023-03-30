@@ -5,22 +5,26 @@ import { totalSumOfProducts } from "./print_totalprice.js";
 const contentSec = document.getElementById('root')
 
 export default function printCart() {
-
+	
 	fetch("http://167.71.35.197/index.php/wp-json/wc/store/products")
-		.then(resp => resp.json())
-		.then(data => {
-			showMyCartItems(data)
-		})
-
+	.then(resp => resp.json())
+	.then(data => {
+		showMyCartItems(data)
+	})
+	
 	function showMyCartItems(cartProducts) {
-
+		
 		if (JSON.parse(localStorage.getItem('cart')).length > 0) {
+			
+			let itemTotalPrice = document.createElement('p')
 			let emptyCartButton = document.createElement('button')
 			let checkoutButton = document.createElement('button')
-			let itemTotalPrice = document.createElement('p')
 			itemTotalPrice.innerText = `Your total: ${totalSumOfProducts} kr`
 			checkoutButton.innerText = "Checkout"
 			emptyCartButton.innerText = 'Empty Cart'
+			checkoutButton.className = "checkout-button"
+			emptyCartButton.className = "emptyCart-button"
+
 
 			contentSec.append(emptyCartButton, checkoutButton, itemTotalPrice)
 
@@ -31,8 +35,8 @@ export default function printCart() {
 				itemTotalPrice.innerHTML = ""
 			})
 
-			checkoutButton.addEventListener('click', (cartProducts) => {
-				printCheckoutPage(cartProducts)
+			checkoutButton.addEventListener('click', () => {
+				printCheckoutPage()
 			})
 
 			let myCart = JSON.parse(localStorage.getItem("cart"))
@@ -65,7 +69,6 @@ export default function printCart() {
 						itemRemove.addEventListener('click', () => {
 							divContainer.innerHTML = ""
 							contentSec.innerHTML = ""
-							console.log(totalSumOfProducts);
 							removeThisItem(item.product_id)
 							totalPriceFunction()
 							showMyCartItems(cartProducts)

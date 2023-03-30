@@ -7,23 +7,6 @@ body {
     margin: auto;
 	color: rgb(68, 66, 66);
 }
-
-
-/* - FOOTER - */
-.foot-wrapper{
-	display: flex;
-    justify-content: center;
-    align-items: baseline;
-	flex-wrap: wrap;
-	border-top: 1px solid lightgray;
-}
-.foot-wrapper ul{
-	display: flex;
-	justify-content: center;
-}
-.foot-wrapper li{
-	list-style: none;		
-}
 .body-wrapper{
     min-height: 100vh;
     display: flex;
@@ -40,7 +23,13 @@ body {
     flex-wrap: wrap;
     border-top: 1px solid lightgray;
 }
-
+.foot-wrapper ul{
+	display: flex;
+	justify-content: center;
+}
+.foot-wrapper li{
+	list-style: none;		
+}
 
 /* - FRONT PAGE - */
 .front-page-wrapper{
@@ -66,6 +55,11 @@ body {
 	background-color: rgb(236, 236, 236);
     font-size: xx-large;
 	box-shadow: 5px 5px 12px lightgray;
+}
+
+.front-page-wrapper .cta-Btn:hover {
+	cursor: pointer;
+
 }
 
 /* - CHECKOUT PAGE - */
@@ -112,6 +106,7 @@ header li {
 }
 
 header li:hover {
+	cursor: pointer;
 	transform: scale(1.1);
 	color: rgb(170, 170, 125);
 }
@@ -216,6 +211,7 @@ li {
 }
 
 .checkout-cart-box > div button:hover {
+	cursor: pointer;
 	transform: scale(1.1);
 }
 
@@ -227,7 +223,7 @@ main .div-product {
 	display: block;
 	margin: 10px;
 	width: 240px;
-	height: 300px;
+	height: fit-content;
 	text-align: center;
 	color: rgb(89, 87, 87)	
 }
@@ -249,6 +245,10 @@ main .div-product {
 	border-radius: 5px;
 	border: 1px solid gray;
 	box-shadow: 5px 5px 12px lightgray;
+}
+
+.div-product button:hover {
+	cursor: pointer;
 }
 
 /* bilder på sidan om oss/ nyheter*/
@@ -280,6 +280,7 @@ footer li {
 	margin-right: 35px;	
 }
 footer li:hover {
+	cursor: pointer;
 	transform: scale(1.1);
 	color: rgb(170, 170, 125);
 
@@ -330,7 +331,7 @@ main .div-product {
 	display: block;
 	margin: 10px;
 	width: 225px;
-	height: 300px;		
+	height: auto;	
 }
 
 .div-product button:hover {
@@ -353,6 +354,7 @@ a {
 }
 
 a:hover {
+	cursor: pointer;
 	transform: scale(1.1);
 	color: rgb(170, 170, 125);
 }

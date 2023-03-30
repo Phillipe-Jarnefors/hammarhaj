@@ -36,7 +36,7 @@ export default function printForm() {
 
     formElements.forEach((element) =>{
         element.setAttribute("required", "")
-        phone.required = true
+        element.required = true
     })
 
     const sendBtn = document.createElement("button")
@@ -48,14 +48,14 @@ export default function printForm() {
 
     sendBtn.addEventListener("click", (event) =>{
         event.preventDefault()
-        if(firstName.checkValidity() && lastName.checkValidity() &&
+        if (firstName.checkValidity() && lastName.checkValidity() &&
             adress.checkValidity() && city.checkValidity() &&
             postcode.checkValidity() && country.checkValidity() &&
             email.checkValidity() && phone.checkValidity()){
 
             postOrder() 
 
-        }else{
+        } else{
             formBox.style.border = "2px solid red"
             let errorMsg = document.createElement("p")
             errorMsg.innerText = "Please make sure you have filled in every field correctly"
@@ -107,9 +107,6 @@ export default function printForm() {
             delete item.price
             order.line_items.push(item)
         })        
-
-        //Visa att order skickas
-        console.log(order);
 
         fetch("http://167.71.35.197/index.php/wp-json/wc/v3/orders", {
             method: "POST",
