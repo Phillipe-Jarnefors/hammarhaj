@@ -10,13 +10,19 @@ body {
 
 
 /* - FOOTER - */
+.foot-wrapper{
+	display: flex;
+    justify-content: center;
+    align-items: baseline;
+	flex-wrap: wrap;
+	border-top: 1px solid lightgray;
+}
 .foot-wrapper ul{
 	display: flex;
 	justify-content: center;
 }
 .foot-wrapper li{
-	list-style: none;
-		
+	list-style: none;		
 }
 .body-wrapper{
     min-height: 100vh;
@@ -45,10 +51,12 @@ body {
     align-items: center;
 }
 .front-page-wrapper .content{
-	/* display: flex; */
+	/* 
+	display: flex; 
 	justify-content: center;
-	text-align: center;
     align-items: center;
+	*/
+	text-align: center;
 }
 .front-page-wrapper .cta-Btn{
 	width: 15rem;
@@ -60,6 +68,31 @@ body {
 	box-shadow: 5px 5px 12px lightgray;
 }
 
+/* - CHECKOUT PAGE - */
+.form-wrapper{
+	display: flex;
+    flex-flow: column;
+	align-items: center;
+    width: 100%;
+    gap: 10px;
+	margin: 20px 0;
+}
+.form-wrapper input{
+	width: 50%;
+}
+
+/* - THANK YOU MSG - */
+.thanks-wrapper{
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	box-shadow: 5px 5px 12px lightgray;
+	display: block;
+	margin: 10px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	padding: 10px;
+}
 
 
 /* =========== OLGA ========== */
@@ -231,7 +264,7 @@ figure img {
 }
 
 .foot-wrapper {
-	display: block;
+	/* display: block; */
 	/* position: fixed;
 	left: 0;
 	bottom: 0;
