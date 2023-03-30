@@ -10,9 +10,6 @@ export default function printLandingPage(pages) {
     ctaBtn.className = "cta-Btn";
     ctaBtn.innerText = "Shop";
 
-    //------------
-    // GO TO SHOP
-    //------------
     ctaBtn.addEventListener("click", () => {
         contentSec.innerHTML = ""
         printProducts()
