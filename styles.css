@@ -7,6 +7,7 @@ body {
     margin: auto;
 	color: rgb(68, 66, 66);
 }
+
 .body-wrapper{
     min-height: 100vh;
     display: flex;
@@ -23,10 +24,12 @@ body {
     flex-wrap: wrap;
     border-top: 1px solid lightgray;
 }
+
 .foot-wrapper ul{
 	display: flex;
 	justify-content: center;
 }
+
 .foot-wrapper li{
 	list-style: none;		
 }
@@ -39,6 +42,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .front-page-wrapper .content{
 	/* 
 	display: flex; 
@@ -47,6 +51,7 @@ body {
 	*/
 	text-align: center;
 }
+
 .front-page-wrapper .cta-Btn{
 	width: 15rem;
     height: 5rem;
@@ -59,7 +64,6 @@ body {
 
 .front-page-wrapper .cta-Btn:hover {
 	cursor: pointer;
-
 }
 
 /* - CHECKOUT PAGE - */
@@ -121,7 +125,6 @@ header li:hover {
 
 .main-wrapper ul {
 	display: block;
-
 }
 
 li {
@@ -144,6 +147,23 @@ li {
 .news-title ul {
 	padding: 10px;
 	text-align: center;
+}
+
+.news-title > ul > li {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 12px lightgray;
+    display: block;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+} 
+.news-title > ul > li:hover {
+	cursor: pointer;
+	color: rgb(170, 170, 125);
+	transform: scale(1.01);
 }
 
 /* empty cart/ checkout knappar*/
@@ -225,7 +245,7 @@ main .div-product {
 	width: 240px;
 	height: fit-content;
 	text-align: center;
-	color: rgb(89, 87, 87)	
+	color: rgb(89, 87, 87);
 }
 
 .div-product img {
@@ -240,6 +260,7 @@ main .div-product {
 .div-product button {
 	left: 0;
 	bottom: 0;
+	margin: auto 0 0.5rem 0;
 	width: 65%;
 	height: 35px;
 	border-radius: 5px;
@@ -271,7 +292,6 @@ figure img {
 	width: 100%;
 	background-color: rgb(246, 243, 243); */
 	border-top: 1px solid lightgray;
-	
 }
 
 footer li {
@@ -283,7 +303,6 @@ footer li:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 	color: rgb(170, 170, 125);
-
 }
 
 footer a {
